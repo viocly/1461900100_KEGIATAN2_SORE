@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Siswa;
+use App\Models\Absen;
 
 
 class SiswaController extends Controller
@@ -11,7 +12,18 @@ class SiswaController extends Controller
     public function index()
     {
         $siswa = Siswa::all();
-        return view('data0100', ['siswa' => $siswa]);
+        $siswaselect = Siswa::select('nama', 'nis')->get();
+        $siswawhere = Siswa::where('nis', '=', '1001')->get();
+        $siswajoin = Absen::join('siswa', 'anis', '=', 'nis')->get();
+        $siswajoinlike = Absen::join('siswa', 'anis', '=', 'nis')
+            ->where('absen', 'like', 'A')->get();
+        return view('data0100', [
+            'siswa' => $siswa,
+            'siswawhere' => $siswawhere,
+            'siswaselect' => $siswaselect,
+            'siswajoin' => $siswajoin,
+            'siswajoinlike' => $siswajoinlike
+        ]);
     }
 
     /**

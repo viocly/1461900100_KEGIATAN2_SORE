@@ -42,22 +42,81 @@
     </div>
 
     <div class="container">
+        <h6>Menampilkan nama dan nis</h6>
         <table class="table table-striped">
             <thead>
                 <tr>
                     <td>No</td>
                     <td>Nama</td>
                     <td>NBI</td>
-                    <td>Jenis Kelamin</td>
                 </tr>
             </thead>
             <tbody>
-                @foreach($siswa as $sis)
+                @foreach($siswaselect as $siss)
                 <tr>
                     <td>{{$loop->iteration}}</td>
-                    <td>{{$sis->nama}}</td>
-                    <td>{{$sis->nbi}}</td>
-                    <td>{{$sis->jk}}</td>
+                    <td>{{$siss->nama}}</td>
+                    <td>{{$siss->nis}}</td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+        <h6>menampilkan siswa nis 1001</h6>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>No</td>
+                    <td>Nama</td>
+                    <td>NIS</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($siswawhere as $sisw)
+                <tr>
+                    <td>{{$loop->iteration}}</td>
+                    <td>{{$sisw->nama}}</td>
+                    <td>{{$sisw->nis}}</td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+        <h6>Menampilkan absen dan siswa dengan nis yang sama</h6>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>No</td>
+                    <td>Nama</td>
+                    <td>NBI</td>
+                    <td>absen</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($siswajoin as $sisj)
+                <tr>
+                    <td>{{$loop->iteration}}</td>
+                    <td>{{$sisj->nama}}</td>
+                    <td>{{$sisj->nis}}</td>
+                    <td>{{$sisj->absen}}</td>
+                </tr>
+                @endforeach
+            </tbody>
+        </table>
+        <h6>Menampilkan absen A</h6>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <td>No</td>
+                    <td>Nama</td>
+                    <td>NBI</td>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach($siswajoinlike as $sisjl)
+                <tr>
+                    <td>{{$loop->iteration}}</td>
+                    <td>{{$sisjl->nama}}</td>
+                    <td>{{$sisjl->nis}}</td>
+                    <td>{{$sisjl->absen}}</td>
                 </tr>
                 @endforeach
             </tbody>
