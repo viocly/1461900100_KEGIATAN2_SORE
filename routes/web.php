@@ -1,7 +1,7 @@
 <?php
 
-use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SiswaController;
 
 /*
 |--------------------------------------------------------------------------
@@ -14,12 +14,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/home', function () {
-    return view('home0100');
-});
-Route::get('/artikel', function () {
-    return view('artikel0100');
-});
-Route::get('/contact', function () {
-    return view('contact0100');
-});
+Route::get('/', [SiswaController::class, 'index']);
